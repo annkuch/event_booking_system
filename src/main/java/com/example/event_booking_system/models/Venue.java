@@ -1,4 +1,4 @@
-package com.example.event_booking_system.entity;
+package com.example.event_booking_system.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -11,19 +11,24 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "venues")
+public class Venue {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private String username;
+    private String venueName;
 
     @Column(nullable = false)
-    private String password;
+    private String address;
 
     @Column(nullable = false)
-    private String email;
+    private String city;
 
+    @Column(nullable = false)
+    private String country;
+
+    @Column(nullable = false)
+    private int capacity;
 }

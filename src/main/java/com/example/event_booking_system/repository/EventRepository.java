@@ -1,7 +1,7 @@
 package com.example.event_booking_system.repository;
 
-import com.example.event_booking_system.entity.Event;
-import com.example.event_booking_system.entity.Venue;
+import com.example.event_booking_system.models.Event;
+import com.example.event_booking_system.models.Venue;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

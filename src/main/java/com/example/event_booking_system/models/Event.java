@@ -1,4 +1,4 @@
-package com.example.event_booking_system.entity;
+package com.example.event_booking_system.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -31,8 +31,9 @@ public class Event {
     @JoinColumn(name = "venue_id", nullable = false)
     private Venue venue;
 
-    @Column(nullable = false)
-    private String eventCategory;
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
+    private Category eventCategory;
 
     @Column(nullable = false)
     private double ticketPrice;

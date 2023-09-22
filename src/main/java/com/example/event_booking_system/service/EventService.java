@@ -1,34 +1,18 @@
 package com.example.event_booking_system.service;
 
-import com.example.event_booking_system.entity.Event;
-import com.example.event_booking_system.repository.EventRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.example.event_booking_system.dto.EventDto;
+import com.example.event_booking_system.models.Event;
 
 import java.util.List;
 
-@Service
-public class EventService {
-        @Autowired
-        private EventRepository eventRepository;
+public interface EventService {
+    List<EventDto> getAllEvents();
 
-        public List<Event> getAllEvents() {
-            return eventRepository.findAll();
-        }
+    Event getEventById(Long eventId);
 
-        public Event getEventById(Long eventId) {
-            return eventRepository.findById(eventId).orElse(null);
-        }
+    Event createEvent(Event event);
 
-        public Event createEvent(Event event) {
-            return eventRepository.save(event);
-        }
+    Event updateEvent(Event event);
 
-        public Event updateEvent(Event event) {
-            return eventRepository.save(event);
-        }
-
-        public void deleteEvent(Long eventId) {
-            eventRepository.deleteById(eventId);
-        }
+    void deleteEvent(Long eventId);
 }
