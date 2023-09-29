@@ -1,6 +1,6 @@
 package com.example.event_booking_system.service.impl;
 
-import com.example.event_booking_system.models.User;
+import com.example.event_booking_system.models.user.User;
 import com.example.event_booking_system.repository.UserRepository;
 import com.example.event_booking_system.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
