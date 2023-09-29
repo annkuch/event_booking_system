@@ -1,4 +1,4 @@
-package com.example.event_booking_system.models;
+package com.example.event_booking_system.models.event;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -14,12 +14,9 @@ import lombok.NoArgsConstructor;
 @Table(name = "venues")
 public class Venue {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "venue_seq")
+    @SequenceGenerator(name = "venue_seq", sequenceName = "venues_id_seq", allocationSize = 1)
     private Long id;
-
-    @Column(nullable = false)
-    private String venueName;
-
     @Column(nullable = false)
     private String address;
 
@@ -30,5 +27,11 @@ public class Venue {
     private String country;
 
     @Column(nullable = false)
+    private String venue_name;
+
+    @Column
     private int capacity;
+
+    @Column
+    private int zone_amount;
 }

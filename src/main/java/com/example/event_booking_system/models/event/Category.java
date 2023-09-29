@@ -1,4 +1,4 @@
-package com.example.event_booking_system.models;
+package com.example.event_booking_system.models.event;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -14,7 +14,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "categories")
 public class Category {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "category_seq")
+    @SequenceGenerator(name = "category_seq", sequenceName = "categories_id_seq", allocationSize = 1)
     private Long id;
 
     @Column(nullable = false)
