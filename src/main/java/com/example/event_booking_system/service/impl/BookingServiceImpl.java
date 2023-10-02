@@ -1,6 +1,6 @@
 package com.example.event_booking_system.service.impl;
 
-import com.example.event_booking_system.models.Booking;
+import com.example.event_booking_system.models.booking.Booking;
 import com.example.event_booking_system.repository.BookingRepository;
 import com.example.event_booking_system.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class BookingServiceImpl implements BookingService {
 
-    private BookingRepository bookingRepository;
+    private final BookingRepository bookingRepository;
 
     @Autowired
     public BookingServiceImpl(BookingRepository bookingRepository) {
