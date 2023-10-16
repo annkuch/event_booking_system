@@ -1,0 +1,82 @@
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+  <title>Event Create</title>
+</head>
+<body class="d-flex flex-column h-100">
+<main class="flex-shrink-0">
+  <section layout:fragment="body" class="py-5">
+    <div class="container">
+      <form role="form" method="post" th:action="@{/events/new}" th:object="${event}">
+        <div class="col-md-6">
+          <label for="eventName" class="form-label">Event Name</label>
+          <input type="text" class="form-control" id="eventName" name="eventName" th:field="*{eventName}" placeholder="Event Name">
+          <p th:if="${#fields.hasErrors('eventName')}" class="text-danger" th:errors="*{eventName}"></p>
+        </div>
+
+        <div class="col-md-6">
+          <label for="performer" class="form-label">Performer</label>
+          <select class="form-select" id="performer" name="performer" th:field="*{performer}">
+            <option th:each="p : ${performers}" th:value="${p.id}" th:text="${p.performer_name}">Performer Name</option>
+          </select>
+          <p th:if="${#fields.hasErrors('performer')}" class="text-danger" th:errors="*{performer}"></p>
+        </div>
+
+        <div class="col-md-6">
+          <label for="eventCategory" class="form-label">Category</label>
+          <select class="form-select" id="eventCategory" name="eventCategory" th:field="*{eventCategory}">
+            <option th:each="c : ${categories}" th:value="${c.id}" th:text="${c.categoryName}">Category Name</option>
+          </select>
+          <p th:if="${#fields.hasErrors('eventCategory')}" class="text-danger" th:errors="*{eventCategory}"></p>
+        </div>
+
+        <div class="col-md-6">
+          <label for="eventDateTime" class="form-label">Date Time</label>
+          <input type="datetime-local"
+                 class="form-control"
+                 id="eventDateTime"
+                 name="eventDateTime"
+                 th:field="*{eventDateTime}"
+                 placeholder="Event Date Time">
+          <p th:if="${#fields.hasErrors('eventDateTime')}" class="text-danger" th:errors="*{eventDateTime}"></p>
+        </div>
+
+        <div class="col-md-6">
+          <label for="bookingDeadline" class="form-label">Deadline</label>
+          <input type="datetime-local"
+                 class="form-control"
+                 id="bookingDeadline"
+                 name="bookingDeadline"
+                 th:field="*{bookingDeadline}"
+                 placeholder="bookingDeadline">
+          <p th:if="${#fields.hasErrors('bookingDeadline')}" class="text-danger" th:errors="*{bookingDeadline}"></p>
+        </div>
+
+        <div class="col-md-6">
+          <label for="venue" class="form-label">Venue</label>
+          <select class="form-select" id="venue" name="venue" th:field="*{venue}">
+            <option th:each="v : ${venues}" th:value="${v.id}" th:text="${v.venueName}">Venue Name</option>
+          </select>
+          <p th:if="${#fields.hasErrors('venue')}" class="text-danger" th:errors="*{venue}"></p>
+        </div>
+
+        <div class="col-md-6">
+          <label for="eventImage" class="form-label">Image</label>
+          <input type="text" class="form-control" id="eventImage" name="eventImage" th:field="*{eventImage}" placeholder="eventImage">
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="event_description" class="form-label">Description</label>
+          <input type="text" class="form-control" id="event_description" name="event_description" th:field="*{event_description}" placeholder="event_description">
+        </div>
+
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+</body>
+</html>
