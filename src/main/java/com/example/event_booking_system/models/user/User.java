@@ -18,12 +18,22 @@ public class User {
     private Long id;
 
     @Column(nullable = false)
-    private String username;
+    private String email;
 
     @Column(nullable = false)
     private String password;
+    @Column
+    private String firstname;
 
-    @Column(nullable = false)
-    private String email;
+    @Column
+    private String lastname;
+
+    @Column
+    private String phone;
+
+
+
+
+
 
 }

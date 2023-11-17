@@ -26,8 +26,8 @@ public class Venue {
     @Column(nullable = false)
     private String country;
 
-    @Column(nullable = false)
-    private String venue_name;
+    @Column(name ="venue_name" , nullable = false)
+    private String venueName;
 
     @Column
     private int capacity;

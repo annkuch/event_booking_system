@@ -18,7 +18,6 @@ public interface EventRepository extends JpaRepository<Event, Long> {
     List<Event> findByVenue(Venue venue);
 
     List<Event> findByEventCategory(Category category);
-     @Query("SELECT e FROM Event e WHERE e.eventName LIKE CONCAT('%',:query,'%')")
+    @Query("SELECT e FROM Event e WHERE LOWER(e.eventName) LIKE LOWER(CONCAT('%', :query, '%'))")
     List<Event> searchEvents(String query);
-
    }

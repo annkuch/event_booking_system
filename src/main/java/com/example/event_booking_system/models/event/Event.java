@@ -24,13 +24,13 @@ public class Event {
     @JoinColumn(name = "performer_id")
     private Performer performer;
 
-    @Column
+    @Column(name = "event_name")
     private String eventName;
 
     @Column(columnDefinition = "TEXT")
     private String event_description;
 
-    @Column(nullable = false)
+    @Column(name = "event_date_time", nullable = false)
     private LocalDateTime eventDateTime;
 
     @ManyToOne
@@ -41,11 +41,11 @@ public class Event {
     @JoinColumn(name = "category_id", nullable = false)
     private Category eventCategory;
 
-    @Column
+    @Column(name = "event_image")
     private String eventImage;
 
 
-    @Column(nullable = false)
+    @Column(name = "booking_deadline", nullable = false)
     private LocalDateTime bookingDeadline;
 
 }
