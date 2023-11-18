@@ -16,8 +16,7 @@ import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 @Table(name = "performers")
 public class Performer {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "performer_seq")
-    @SequenceGenerator(name = "performer_seq", sequenceName = "performers_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
     private String performer_name;

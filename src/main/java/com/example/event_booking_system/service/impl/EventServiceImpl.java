@@ -10,6 +10,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.example.event_booking_system.mapper.EventMapper.maptoEvent;
+import static com.example.event_booking_system.mapper.EventMapper.maptoEventDto;
+
 @Service
 public class EventServiceImpl implements EventService {
 
@@ -25,21 +28,6 @@ public class EventServiceImpl implements EventService {
             List<Event> events =eventRepository.findAll();
              return  events.stream().map(event -> maptoEventDto(event)).collect(Collectors.toList());
         }
-
-    private EventDto maptoEventDto(Event event) {
-        EventDto eventDto=EventDto.builder()
-                .id(event.getId())
-                .performer(event.getPerformer())
-                .eventName(event.getEventName())
-                .event_description(event.getEvent_description())
-                .eventDateTime(event.getEventDateTime())
-                .venue(event.getVenue())
-                .eventCategory(event.getEventCategory())
-                .eventImage(event.getEventImage())
-                .bookingDeadline(event.getBookingDeadline())
-        .build();
-        return eventDto;
-    }
 
     @Override
         public Event getEventById(Long eventId) {
@@ -58,20 +46,6 @@ public class EventServiceImpl implements EventService {
         eventRepository.save(event);
         }
 
-    private Event maptoEvent(EventDto event) {
-        Event eventDto = Event.builder()
-                .id(event.getId())
-                .performer(event.getPerformer())
-                .eventName(event.getEventName())
-                .event_description(event.getEvent_description())
-                .eventDateTime(event.getEventDateTime())
-                .venue(event.getVenue())
-                .eventCategory(event.getEventCategory())
-                .eventImage(event.getEventImage())
-                .bookingDeadline(event.getBookingDeadline())
-                .build();
-        return eventDto;
-    }
 
     @Override
         public void deleteEvent(Long eventId) {

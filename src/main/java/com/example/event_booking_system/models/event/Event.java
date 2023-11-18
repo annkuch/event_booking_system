@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -16,8 +17,7 @@ import java.util.Date;
 @Table(name = "events")
 public class Event {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "event_seq")
-    @SequenceGenerator(name = "event_seq", sequenceName = "events_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne // Reference to the Performer entity
@@ -31,6 +31,7 @@ public class Event {
     private String event_description;
 
     @Column(name = "event_date_time", nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime eventDateTime;
 
     @ManyToOne
@@ -46,6 +47,7 @@ public class Event {
 
 
     @Column(name = "booking_deadline", nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime bookingDeadline;
 
 }

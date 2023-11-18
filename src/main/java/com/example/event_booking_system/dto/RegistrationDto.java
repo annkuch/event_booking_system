@@ -1,19 +1,17 @@
 package com.example.event_booking_system.dto;
 
-import com.example.event_booking_system.models.user.UserRole;
-import lombok.Builder;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 
-import java.util.Set;
-
 @Data
-@Builder
-public class UserDto {
+public class RegistrationDto {
     private Long id;
-    private String password;
+    @NotEmpty(message = "Email is required")
     private String email;
-    private String role;
+    @NotEmpty(message = "Password is required")
+    private String password;
     private String firstname;
     private String lastname;
     private String phone;
+
 }

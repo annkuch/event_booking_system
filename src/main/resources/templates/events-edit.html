@@ -39,30 +39,27 @@
                     </select>
                     <p th:if="${#fields.hasErrors('eventCategory')}" class ="text-danger" th:errors="*{eventCategory}"></p>
                 </div>
-                <div class="col-md-6">
-                    <label for="eventDateTime" class="form-label">Date</label>
-                    <input
-                            type="datetime-local"
-                            class="form-control"
-                            id="eventDateTime"
-                            name="eventDateTime"
-                            th:field="*{eventDateTime}"
-                            placeholder="eventDateTime"
-                            th:value="${#temporals.format(event.eventDateTime, 'yyyy-MM-dd''T''HH:mm')}">
-
-                    <p th:if="${#fields.hasErrors('eventDateTime')}" class ="text-danger" th:errors="*{eventDateTime}"></p>
+                <div class="form-group mb-3">
+                <label for="eventDateTime">Date</label>
+                <input
+                        type="datetime-local"
+                        class="form-control"
+                        id="eventDateTime"
+                        name="eventDateTime"
+                        th:field="*{eventDateTime}"
+                        placeholder="Event Date">
+                <p th:if="${#fields.hasErrors('eventDateTime')}" class="text-danger" th:errors="*{eventDateTime}"></p>
                 </div>
-                <div class="col-md-6">
-                    <label for="bookingDeadline" class="form-label">Deadline</label>
+                <div class="form-group mb-3">
+                    <label for="bookingDeadline">Deadline</label>
                     <input
                             type="datetime-local"
                             class="form-control"
                             id="bookingDeadline"
                             name="bookingDeadline"
                             th:field="*{bookingDeadline}"
-                            placeholder="bookingDeadline"
-                            th:value="${#temporals.format(event.bookingDeadline, 'yyyy-MM-dd''T''HH:mm')}">
-                <p th:if="${#fields.hasErrors('bookingDeadline')}" class="text-danger" th:errors="*{bookingDeadline}"></p>
+                            placeholder="bookingDeadline">
+                    <p th:if="${#fields.hasErrors('bookingDeadline')}" class="text-danger" th:errors="*{bookingDeadline}"></p>
                 </div>
                 <div class="col-md-6">
                     <label for="venue" class="form-label">Venue</label>
